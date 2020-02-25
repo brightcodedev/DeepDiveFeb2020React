@@ -6,9 +6,13 @@ import {
   Link
 } from "react-router-dom";
 
+import CreateUpdateQuestion from './components/questions/CreateUpdateQuestion'
 import GetQuestions from './components/questions/GetQuestions'
 import GetQuestion from './components/questions/GetQuestion'
-import CreateUpdateRecord from './components/shared/CreateUpdateRecord'
+import CreateUpdateChoice from './components/choices/CreateUpdateChoice'
+import GetChoices from './components/choices/GetChoices'
+import GetChoice from './components/choices/GetChoice'
+
 
 const App=()=> {
   return (
@@ -23,7 +27,7 @@ const App=()=> {
               <Link to="/questions">Questions</Link>
             </li>
             <li>
-              <Link to="/questions/create">Create</Link>
+              <Link to="/questions/create">Create Question</Link>
             </li>
           </ul>
         </nav>
@@ -33,12 +37,22 @@ const App=()=> {
 
           <Route exact
             path="/questions/create"
-            component={(props)=><CreateUpdateRecord fields={["header", "subHeader"]} recordName="questions" {...props} />}
+            component={(props)=><CreateUpdateQuestion recordName="questions" {...props} />}
           />
           <Route exact
             path="/questions/:id/update"
-            component={(props)=><CreateUpdateRecord fields={["header", "subHeader"]} recordName="questions" {...props} />}
+            component={(props)=><CreateUpdateQuestion recordName="questions" {...props} />}
           />
+          <Route exact
+            path="/choices/create"
+            component={(props)=><CreateUpdateChoice recordName="choices" {...props} />}
+          />
+          <Route exact
+            path="/choices/:id/update"
+            component={(props)=><CreateUpdateChoice recordName="choices" {...props} />}
+          />
+          <Route exact path="/choices/:id" component={GetChoice} />
+          <Route exact path="/choices" component={GetChoices} />
           <Route exact path="/questions/:id" component={GetQuestion} />
           <Route exact path="/questions" component={GetQuestions} />
           <Route exact path="/" component={Home} />

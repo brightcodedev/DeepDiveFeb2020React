@@ -32,6 +32,8 @@ function GetQuestions() {
 
   return (
     <div>
+      <Link to="choices/create">Create Choice</Link>
+      <Link to="choices">See Choices</Link>
       { renderedQuestions }
     </div>
   );

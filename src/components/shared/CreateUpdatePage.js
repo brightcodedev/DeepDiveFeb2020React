@@ -19,8 +19,6 @@ function CreateUpdateRecord(props) {
             obj[key] = data[key];
             return obj;
           }, {});
-
-
         setRecord(filtered);
       })
     }
@@ -57,12 +55,9 @@ function CreateUpdateRecord(props) {
 
   }
   let inputArr=[];
-
   for (let [key, value] of Object.entries(record)) {
     inputArr.push(<input key={key} placeholder={key} onChange={handleRecordChange(key, value)} />)
   }
-
-
   return (
     <>
     {inputArr}
