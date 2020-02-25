@@ -6,7 +6,7 @@ function CreateUpdateChoices(props) {
   const [imageUrl, setImageUrl] = React.useState("");
   const [type, setType] = React.useState("");
 
-  const fetchRecord=()=>{
+  const fetchChoice=()=>{
     fetch('http://localhost:8080/' + props.recordName + "/" + props.match.params.id)
       .then((res)=>{
         return res.json();
@@ -15,7 +15,7 @@ function CreateUpdateChoices(props) {
         setImageUrl(data.imageUrl);
         setType(data.type);
       })
-    }
+  }
 
   const handleSubmit=()=>{
     let data = {
@@ -43,10 +43,10 @@ function CreateUpdateChoices(props) {
   }
   React.useEffect(()=>{
     if(props.match.params.id){
-      fetchRecord();
+      fetchChoice();
     }
   }, [])
-  
+
   return (
     <>
       <input
